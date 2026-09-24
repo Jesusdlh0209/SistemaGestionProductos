@@ -12,7 +12,7 @@ public class GestorProductos {
             Producto p = productos.get(i);
 
             if (p.getId() == producto.getId()) {
-                System.out.println("Ese ID ya existe.");
+                System.out.println("Ese ID ya existe, no se pudo agregar el producto.");
                 return;
             }
 
@@ -22,15 +22,18 @@ public class GestorProductos {
         System.out.println("Producto agregado.");
     }
 
-    public void mostrarProductos() {
+   public void mostrarProductos() {
+        if (productos.isEmpty()){
+            System.out.println("La lista esta vacia");
+        
+        }else {
         for (int i = 0; i < productos.size(); i++) {
             Producto producto = productos.get(i);
             System.out.println(producto);
 
-        }
+        }}
 
     }
-
     public boolean actualizarProducto(int id, double nuevoPrecio) {
 
         for (int i = 0; i < productos.size(); i++) {
